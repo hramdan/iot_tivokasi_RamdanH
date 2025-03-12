@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Ramdan Hidayat",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -114.9, "left": -101.4, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -51.2,
+      "left": 178.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:SDA", "esp:33", "green", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "esp:VN", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
